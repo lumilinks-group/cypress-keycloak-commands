@@ -1,7 +1,7 @@
 import { getAuthCodeFromLocation } from "./utils";
 
-Cypress.Commands.add("kcLogin", (user: string) => {
-  Cypress.log({ name: "Login" });
+Cypress.Commands.add("kcLoginHid", (user: string) => {
+  Cypress.log({ name: "LoginHid" });
 
   cy.fixture(`users/${user}`).then((userData: UserData) => {
     const authBaseUrl = Cypress.env("auth_base_url");

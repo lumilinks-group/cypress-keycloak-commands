@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var utils_1 = require("./utils");
-Cypress.Commands.add("kcLogin", function (user) {
-    Cypress.log({ name: "Login" });
+Cypress.Commands.add("kcLoginHid", function (user) {
+    Cypress.log({ name: "LoginHid" });
     cy.fixture("users/" + user).then(function (userData) {
         var authBaseUrl = Cypress.env("auth_base_url");
         var realm = Cypress.env("auth_realm");

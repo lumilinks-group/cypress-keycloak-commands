@@ -50,6 +50,7 @@ Cypress.Commands.add("kcLoginHid", (user: string) => {
           form: true,
           body: {
             credentialId: "",
+            username: userData.username,
             password: userData.password
           }
         });

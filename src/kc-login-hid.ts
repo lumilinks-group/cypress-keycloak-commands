@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { getAuthCodeFromLocation } from "./utils";
 
 Cypress.Commands.add("kcLoginHid", (user: string) => {

@@ -31,9 +31,8 @@ Cypress.Commands.add("kcFakeLogin", function (user, visitUrl) {
         };
         var localStorageKey = "kc-callback-" + state;
         window.localStorage.setItem(localStorageKey, JSON.stringify(localStorageObj));
-        cy.server();
-        cy.route("post", authBaseUrl + "/realms/" + realm + "/protocol/openid-connect/token", token);
-        cy.route(authBaseUrl + "/realms/" + realm + "/account", account);
+        cy.intercept('POST', authBaseUrl + "/realms/" + realm + "/protocol/openid-connect/token", token);
+        cy.intercept('GET', authBaseUrl + "/realms/" + realm + "/account", account);
         // in case visitUrl is an url with a hash, a second hash should not be added to the url
         var joiningCharacter = visitUrl.indexOf("#") === -1 ? "#" : "&";
         var url = Cypress.config().baseUrl + "/" + visitUrl + joiningCharacter + "state=" + state + "&session_state=" + utils_1.createUUID() + "&code=" + utils_1.createUUID();

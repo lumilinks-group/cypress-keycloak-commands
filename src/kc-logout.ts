@@ -1,3 +1,4 @@
+// @ts-nocheck
 Cypress.Commands.add("kcLogout", () => {
   Cypress.log({ name: "Logout" });
   const authBaseUrl = Cypress.env("auth_base_url");

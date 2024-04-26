@@ -1,4 +1,5 @@
 "use strict";
+// @ts-nocheck
 Cypress.Commands.add("kcLogout", function () {
     Cypress.log({ name: "Logout" });
     var authBaseUrl = Cypress.env("auth_base_url");

@@ -47,15 +47,8 @@ Cypress.Commands.add("kcFakeLogin", (user: string, visitUrl = "") => {
       JSON.stringify(localStorageObj)
     );
 
-    cy.server();
-
-    cy.route(
-      "post",
-      `${authBaseUrl}/realms/${realm}/protocol/openid-connect/token`,
-      token
-    );
-
-    cy.route(`${authBaseUrl}/realms/${realm}/account`, account);
+    cy.intercept('POST', authBaseUrl + "/realms/" + realm + "/protocol/openid-connect/token", token);
+    cy.intercept('GET', authBaseUrl + "/realms/" + realm + "/account", account);
 
     // in case visitUrl is an url with a hash, a second hash should not be added to the url
     const joiningCharacter = visitUrl.indexOf("#") === -1 ? "#" : "&";

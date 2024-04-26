@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+// @ts-nocheck
 var utils_1 = require("./utils");
 Cypress.Commands.add("kcLoginHid", function (user) {
     Cypress.log({ name: "LoginHid" });
